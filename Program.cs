@@ -4,47 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace voter_Application
+namespace demo_datatypes
 {
     class Program
     {
         static void Main(string[] args)
         {
             string name;
-            DateTime dob;
-            Console.WriteLine("Enter voter name : " );
+            string emailId;
+             string mobileNumber;
+             string address;
+             int sal;
+           DateTime doj;
+
+            Console.WriteLine("Enter your name");
             name = Console.ReadLine();
-            Console.WriteLine("Enter voter dob : ");
-            dob = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("Enter your emailId");
+            emailId = Console.ReadLine();
+
+            Console.WriteLine("Enter your mobileNumber");
+            mobileNumber = Console.ReadLine();
+
+            Console.WriteLine("Enter your address");
+            address = Console.ReadLine();
+
+            Console.WriteLine("Enter your doj");
+            doj = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine("Enter your sal");
+            sal = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Employee details are : ");
 
             DateTime today = DateTime.Today;
-            String diff = (today-dob).TotalDays.ToString();
-            int totalDays = Convert.ToInt32(diff);
+            String exp = (today -doj).TotalDays.ToString();
+            int totalDays = Convert.ToInt32(exp);
             int year = totalDays / 365;
-            string age = year + "Years ";
-            Console.WriteLine(age);
+            int remainingDays = totalDays % 365;
+            int month = remainingDays / 30;
+            remainingDays = remainingDays % 30;
+    string  Text = year + "years " + month + "months and " + remainingDays + "days";  
 
-            int a = System.Convert.ToInt32(age);
-            Console.WriteLine(a);
+            Console.WriteLine("Experience of " + name + " is: " + Text);
 
-            if (a >= 18)
-
-            {
-                Console.WriteLine("Eligible for voting");
-            }
-            else
-            {
-                Console.WriteLine("Not Eligible for voting");
-
-            }
-            Console.ReadKey();
-
-          
-
-
-
-
-
+            long annualSal = sal * 12;
+            Console.Write("Annual salary is: " + "$ " + annualSal);
+            Console.ReadLine();  
+            
 
         }
     }
